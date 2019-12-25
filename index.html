@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-25 01:42:25 / Modified: 04:22:50" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
+              <time title="Created: 2019-12-25 01:42:25 / Modified: 04:31:44" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,9 +224,9 @@
 <p>How can you make the process easier, so that you can focus on your writing?</p>
 <p>This picture below shows this new process.</p>
 <p><img src="/images/201912250436/photo.jpeg" alt="images"></p>
-<p>I made another git repository with my hexo source files. With a tool from app store called Working Copy, you can get access to your repo and do the normal work such as pull, commit and push easily.</p>
+<p>I made a git repository (Repo 1) with the hexo source files. With a tool from app store called Working Copy, you can get access to your repo and do the normal work such as pull, commit and push easily.</p>
 <p>With this tool, you can add your post files in this application and push them to your remote repo.</p>
-<p>You have to setup a webhook, which allows you to to trigger a bash script on your server after every push. This script will clean the hexo static files, generate the new public files and deploy them to the other git repository, which you use to host your blog or deploy them to your own server. After that, this script will also push the whole scource file to remote again, so that it is sychronized among your server, your ipad and github.</p>
+<p>In order to automate the process on the server, you have to setup a webhook, which allows you to trigger a bash script on your server after every push. This script will pull the changes from Repo 1, clean the hexo static files, generate the new static files and deploy them to the repository Repo 2, which you use to host your blog. After that, this script will also push the whole scource files to remote Repo 1 again, so that it is sychronized among your server, your ipad and github.</p>
 <p>However, it still doesn’t solve the problem with inserting pictures. You can upload your pictures on a image host. And use the url you get from that in your posts. But normally there are a lot restrictions about the size and number of your pictures you are allowed to upload. Therefore I prefer to host the pictures on my own site.</p>
 <p>You can use Working Copy to upload the pictures manuelly to your repo and insert them in your markdown file. There is another way, which make it much easier and faster. There are a lot of markdown editors in app store. I’m using an app called noto. Using this tool, you can focus on editing your blog and use the functions such as insert a picture or formula just as in microsoft word. After that, you can export your file in formats such as pdf, html or markdown.</p>
 <p>If you export it as markdown, you will get a folder with .md file and all the pictures you used in your file. And the images in the md file are inserted directly with their names. But hexo requires you to add the images in the folder …/source/images/ and your md files in the folder …/source/_posts. And you have to use the images with the url such as /images/….jpg.</p>
