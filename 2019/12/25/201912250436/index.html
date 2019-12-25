@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I got is my ipad Pro. So I asked myself, is there a way to publish something with ipad “gracefully”?">
+  <meta name="description" content="In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I had with me is my ipad Pro. So I asked myself, is there a way to publish something with ipad “grace">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to pubilish your Hexo Blog hosted on Github with your ipad gracefully?">
+<meta property="og:title" content="How to pubilish your Hexo blog hosted on Github with your ipad gracefully?">
 <meta property="og:url" content="https://thingsjar.github.io/thingsjarx/2019/12/25/201912250436/index.html">
 <meta property="og:site_name" content="Thingsjar">
-<meta property="og:description" content="In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I got is my ipad Pro. So I asked myself, is there a way to publish something with ipad “gracefully”?">
+<meta property="og:description" content="In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I had with me is my ipad Pro. So I asked myself, is there a way to publish something with ipad “grace">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-25T01:42:25.000Z">
-<meta property="article:modified_time" content="2019-12-25T03:36:49.257Z">
+<meta property="article:modified_time" content="2019-12-25T03:51:02.947Z">
 <meta property="article:author" content="Thingsjar">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github">
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>How to pubilish your Hexo Blog hosted on Github with your ipad gracefully? | Thingsjar</title>
+  <title>How to pubilish your Hexo blog hosted on Github with your ipad gracefully? | Thingsjar</title>
   
 
 
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          How to pubilish your Hexo Blog hosted on Github with your ipad gracefully?
+          How to pubilish your Hexo blog hosted on Github with your ipad gracefully?
         </h1>
 
         <div class="post-meta">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-12-25 01:42:25 / Modified: 03:36:49" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
+              <time title="Created: 2019-12-25 01:42:25 / Modified: 03:51:02" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,17 +226,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I got is my ipad Pro. So I asked myself, is there a way to publish something with ipad “gracefully”?</p>
-<p>The answer is yes of course!</p>
-<p>So I assume that you have already know how to use hexo to generate your blog and deploy it on github or your own server. If you still get questions about that, you can refer to my last article about it.</p>
-<p>The first thought is to log in your server and edit your post directly on it. I’m using Promp2 as my tool to work on a remote server and its performance is satisfying.</p>
-<p>However, we are here talking about how to edit your post gracefully. With this way, you have to use a lot of work to get your article published, including edit the post, generate the static files and deploy them on git or your own server. Especially if you want to edit your post with many pictures, you have to upload the pictures and rename them first. To add them in the post is not convenient. If you need to post news very often, this extra work will take a lot of time.</p>
-<p>So how can you make the process easier, so that you can focus on your writing?</p>
-<p>I made another git repository with my hexo source files. With a tool working copy, you can get access your repo and do the normal work such as pull, commit and push.</p>
-<p>You can add your post files in this application and push them to your remote repo.</p>
-<p>With a webhook, you can use the action “commit” to trigger a bash script on your server, which will clean the hexo static files, generate the new public files and deploy them to the other git repo, which you use to host your blog or deploy them to your own server. After that, this script will also push the whole scource file to remote again, so that it is sychronized among your server, your ipad and github.</p>
-<p>However, it still doesn’t solve the problem with inserting pictures. You can upload your pictures on a image host. And use the url you get from that in your posts. But there are a lot restrictions about the size and number of your pictures. Therefore I prefer to host the pictures on my own site.</p>
-<p>You can use Working Copy to upload the pictures manuelly to your repo and insert them in your markdown file. There is another way, which make it much easier and faster. There are a lot of markdown editor in app store. I’m using an app called noto. Using this tool, you can focus on editing your blog and use the functions such as insert a picture or formula just as in microsoft word. After that, you can export your file in forms such as pdf html or markdown.</p>
+        <p>In the last days, I was on a vacation. I wanted to push my news to my own blog, but the only thing I had with me is my ipad Pro. So I asked myself, is there a way to publish something with ipad “gracefully”?</p>
+<p>The answer is: yes, of course!</p>
+<p>I assume that, you already know how to generate your blog and deploy it on github or your own server with Hexo. If you still have questions about that, you can refer to my last article about it.</p>
+<p>My first thought is to get remote access to your server and edit your post directly on it. I’m using Promp2 as my tool to work on a remote server and its performance is satisfying sofar.</p>
+<p>However, we are talking about how to edit your post gracefully. In this way, you have to use the command lines and do a lot of work to get your article published, including edit the post, generate the static files and deploy them on git or your own server. Especially if you want to edit your post with many pictures, you have to upload the pictures and rename them first. To add them in the post is not very convenient. If you need to post news very often, this extra work will take a lot of time.</p>
+<p>How can you make the process easier, so that you can focus on your writing?</p>
+<p>I made another git repository with my hexo source files. With a tool from app store called Working Copy, you can get access to your repo and do the normal work such as pull, commit and push easily.</p>
+<p>With this tool, you can add your post files in this application and push them to your remote repo.</p>
+<p>You have to setup a webhook, which allows you to to trigger a bash script on your server after every push. This script will clean the hexo static files, generate the new public files and deploy them to the other git repository, which you use to host your blog or deploy them to your own server. After that, this script will also push the whole scource file to remote again, so that it is sychronized among your server, your ipad and github.</p>
+<p>However, it still doesn’t solve the problem with inserting pictures. You can upload your pictures on a image host. And use the url you get from that in your posts. But normally there are a lot restrictions about the size and number of your pictures you are allowed to upload. Therefore I prefer to host the pictures on my own site.</p>
+<p>You can use Working Copy to upload the pictures manuelly to your repo and insert them in your markdown file. There is another way, which make it much easier and faster. There are a lot of markdown editors in app store. I’m using an app called noto. Using this tool, you can focus on editing your blog and use the functions such as insert a picture or formula just as in microsoft word. After that, you can export your file in formats such as pdf, html or markdown.</p>
 <p>If you export it as markdown, you will get a folder with .md file and all the pictures you used in your file. And the images in the md file are inserted directly with their names. But hexo requires you to add the images in the folder …/source/images/ and your md files in the folder …/source/_posts. And you have to use the images with the url such as /images/….jpg.</p>
 <p>After export your markdown folder from noto, I move the folder to a new folder named update in the github repository. On the server side, you have to add an extra script with webhook, which will edit the md file and move it to the _posts folder. And then make a new folder with the same name as your post in the images folder. After that, it will move all the pictures to this folder. </p>
 <p>There are some points, you have to pay attention to, before you fall into the traps. In the name of this md files, there must be no space or special characters. The md file from noto is automatically named as content.md. And you cannot change the name automatically in noto, or at least I haven’t found the function yet. So I implement this function in my script with webhook. It will read out the content in my md file in second row after “title: “ and rename my md file and the folder for images.</p>
