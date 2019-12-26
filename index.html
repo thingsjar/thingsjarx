@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://www.thingsjar.com/2019/12/25/201912250436/">
+    <link itemprop="mainEntityOfPage" href="https://www.thingsjar.com/2019/12/25/20191225043600/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +180,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/25/201912250436/" class="post-title-link" itemprop="url">How to pubilish your Hexo blog hosted on Github with your ipad gracefully?</a>
+            <a href="/2019/12/25/20191225043600/" class="post-title-link" itemprop="url">How to pubilish your Hexo blog hosted on Github with your ipad gracefully?</a>
         </h1>
 
         <div class="post-meta">
@@ -189,10 +189,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-25 01:42:25 / Modified: 04:31:44" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
+              <time title="Created: 2019-12-25 01:42:25" itemprop="dateCreated datePublished" datetime="2019-12-25T01:42:25+00:00">2019-12-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-26 15:18:32" itemprop="dateModified" datetime="2019-12-26T15:18:32+00:00">2019-12-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -223,21 +229,117 @@
 <p>However, we are talking about how to edit your post gracefully. In this way, you have to use the command lines and do a lot of work to get your article published, including edit the post, generate the static files and deploy them on git or your own server. Especially if you want to edit your post with many pictures, you have to upload the pictures and rename them first. To add them in the post is not very convenient. If you need to post news very often, this extra work will take a lot of time.</p>
 <p>How can you make the process easier, so that you can focus on your writing?</p>
 <p>This picture below shows this new process.</p>
-<p><img src="/images/201912250436/photo.jpeg" alt="images"></p>
+<p><img src="/images/20191225043600/photo.jpeg" alt="images"></p>
 <p>I made a git repository (Repo 1) with the hexo source files. With a tool from app store called Working Copy, you can get access to your repo and do the normal work such as pull, commit and push easily.</p>
 <p>With this tool, you can add your post files in this application and push them to your remote repo.</p>
 <p>In order to automate the process on the server, you have to setup a webhook, which allows you to trigger a bash script on your server after every push. This script will pull the changes from Repo 1, clean the hexo static files, generate the new static files and deploy them to the repository Repo 2, which you use to host your blog. After that, this script will also push the whole scource files to remote Repo 1 again, so that it is sychronized among your server, your ipad and github.</p>
-<p>However, it still doesn’t solve the problem with inserting pictures. You can upload your pictures on a image host. And use the url you get from that in your posts. But normally there are a lot restrictions about the size and number of your pictures you are allowed to upload. Therefore I prefer to host the pictures on my own site.</p>
-<p>You can use Working Copy to upload the pictures manuelly to your repo and insert them in your markdown file. There is another way, which make it much easier and faster. There are a lot of markdown editors in app store. I’m using an app called noto. Using this tool, you can focus on editing your blog and use the functions such as insert a picture or formula just as in microsoft word. After that, you can export your file in formats such as pdf, html or markdown.</p>
-<p>If you export it as markdown, you will get a folder with .md file and all the pictures you used in your file. And the images in the md file are inserted directly with their names. But hexo requires you to add the images in the folder …/source/images/ and your md files in the folder …/source/_posts. And you have to use the images with the url such as /images/….jpg.</p>
-<p>After export your markdown folder from noto, I move the folder to a new folder named update in the github repository. On the server side, you have to add an extra script with webhook, which will edit the md file and move it to the _posts folder. And then make a new folder with the same name as your post in the images folder. After that, it will move all the pictures to this folder. </p>
-<p>There are some points, you have to pay attention to, before you fall into the traps. In the name of this md files, there must be no space or special characters. The md file from noto is automatically named as content.md. And you cannot change the name automatically in noto, or at least I haven’t found the function yet. So I implement this function in my script with webhook. It will read out the content in my md file in second row after “title: “ and rename my md file and the folder for images.</p>
-<p>To summary, with all the work mentioned above, your final work process will be looking like this:</p>
+<p>However, it still doesn’t solve the problem with inserting pictures. You can upload your pictures on a image host. And use the url you get from that in your posts. But normally, there are many restrictions about the size and number of your pictures, that you are allowed to upload. Therefore I prefer to host the pictures on my own site.</p>
+<p>You can use Working Copy to upload the pictures manuelly to your repo and insert them in your markdown file. But in this case, you have to take care of managing the images yourself.</p>
+<p>There is another way, which make it much easier and faster. There are a lot of markdown editors in app store. I’m using an app called noto. Using this tool, you can focus on editing your blog and use the functions such as insert a picture or formula just as in microsoft word. After your post is finished, you can export your file as a pdf, html or markdown.</p>
+<p>If you export it as markdown, you will get a folder with the .md file and all the pictures you used in your file. And the images in the md file are inserted directly with their names. The image link looks like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![image](NameOfImage.jpg)</span><br></pre></td></tr></table></figure>
+<p>But hexo requires you to add the images in the folder …/hexo/source/image/. I prefer to make a subfolder for each post I have in the image folder. So the image should be uploaded to …/hexo/source/image/NameOfPost/. Besides that, you need to move your md files in the folder …/hexo/source/_posts. And the url of the image in your md file should be</p>
+<pre><code>![image](/image/NameOfPost/NameOfImage.jpg)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Therefore, instead of directly inserting the files to the ...&#x2F;hexo&#x2F;source&#x2F; folder, I upload the whole folder generated by noto to a buffer folder named &quot;update&quot;. On the server side, you have to add an extra function with your script, which can edit the md file and move it to the _posts folder. And then make a new folder with the same name as your post in the images folder. After that, it can move all the pictures to this folder. </span><br><span class="line"></span><br><span class="line">In order to use this function, you have to setup the webhook in your github repository (Repo1) first. With the webhook setup from github, everytime after something is pushed, it will send a POST request to your server. </span><br><span class="line"></span><br><span class="line">On your server, you have to install the [github-webhook-handler](https:&#x2F;&#x2F;github.com&#x2F;rvagg&#x2F;github-webhook-handler#readme).</span><br><span class="line"></span><br><span class="line">After that, you need to create following two files on your server:</span><br><span class="line"></span><br><span class="line">- webhook.js: This file will listen to the port (in this case, port number &#x3D; 12345). And this webhook.js will get the event posted by the webhook and trigger the deploy.sh script to run.</span><br></pre></td></tr></table></figure>
+var http = require(&apos;http&apos;)
+var createHandler = require(&apos;github-webhook-handler&apos;)
+var handler = createHandler({ path: &apos;/&apos;, secret: &apos;Yoursecret&apos; })
+function run_cmd(cmd, args, callback) {
+  var spawn = require(&apos;child_process&apos;).spawn;
+  var child = spawn(cmd, args);
+  var resp = &quot;&quot;;
+  child.stdout.on(&apos;data&apos;, function(buffer) { resp += buffer.toString(); });
+  child.stdout.on(&apos;end&apos;, function() { callback (resp) });
+}
+
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end(&apos;no such location&apos;)
+  })
+}).listen(12345)
+
+handler.on(&apos;error&apos;, function (err) {
+  console.error(&apos;Error:&apos;, err.message)
+})
+
+handler.on(&apos;push&apos;, function (event) {
+  console.log(&apos;Received a push event for %s to %s&apos;,
+    event.payload.repository.name,
+    event.payload.ref);
+    run_cmd(&apos;sh&apos;, [&apos;./deploy.sh&apos;,event.payload.repository.name], function(text){ console.log(text) });
+})
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- deploy.sh</span><br></pre></td></tr></table></figure>
+#!/bin/bash
+
+WEB_PATH=&apos;/home/git/Example.git&apos;
+HEXO_PATH=&apos;/home/git/Example.git/hexo&apos;
+UPDATE_PATH = &apos;/home/git/Example.git/update&apos;
+
+# pull the source files from github to your server
+echo &quot;start pulling from thingsjarsrc.git&quot;
+cd $WEB_PATH
+git pull git@github.com:Example/Example.git
+
+# handle the newly updated posts
+cd UPDATE_PATH
+
+#just in case there is space in your file name. You can change the Internal Field Separator (IFS) to another char and change it back after this process finished.
+
+MY_SAVEIFS=$IFS
+IFS=$&apos;\%&apos;
+
+for file in /home/git/Example.git/update/*
+do
+  # if the file is a directory (folder)
+  if test -d $file
+  then
+    mdfilename=&apos;&apos;
+    #set up a new filename for your post, the name will be YYYYMMDDhhmmss
+    mdfilename=$(date +&quot;%Y%m%d%H%M%S&quot;)
+    # then iterate in the folder to finde the .md file
+    for subfile in $file/*   #`ls $file | sed &quot;s:^:$file/:&quot;`
+    do
+      if [ -f $subfile ] &amp;&amp; [ &quot;${subfile##*.}&quot;x = &quot;md&quot;x ]
+      then
+        # change the image link ![image](....jpg) to ![image](/image/mdfilename/...jpg)
+        sed -i &quot;s/\!\[image\](/\!\[image\](\/image\/&quot;$mdfilename&quot;\//g&quot; $subfile
+        # rename the md file and move it ot the _posts folder
+        mv $subfile &quot;/home/git/thingsjarsrc.git/hexo/source/_posts/&quot;&quot;$mdfilename&quot;&quot;.md&quot;
+        break
+      fi
+    done
+    # move the image files to the .../hexo/source/image/ folder
+    if [ &quot;$mdfilename&quot;x != &quot;&quot;x ]
+    then
+      if [ -d &quot;/home/git/thingsjarsrc.git/hexo/source/image/&quot;$mdfilename ]
+      then
+        mkdir &quot;/home/git/thingsjarsrc.git/hexo/source/image/&quot;$mdfilename
+      fi
+      mv $file &quot;/home/git/thingsjarsrc.git/hexo/source/image/&quot;$mdfilename
+    fi
+  fi
+done
+
+IFS=$MY_SAVEIFS
+
+cd $HEXO_PATH
+hexo clean
+hexo g -d
+
+cd $WEB_PATH
+git add .
+git commit -a -m &quot;update&quot;
+git push -uf Example master
+echo &quot;done&quot;
+</code></pre><p>Of course, you need to grant your user with the execution right of the deploy.sh script.</p>
+<p>To summarize, with all the work mentioned above, your final work process will be looking like this:</p>
 <ol>
 <li>You edit your post in noto and export it in the folder update. In Working Copy, there is an option to make the folder update automatically sychronized.</li>
 <li>You have to push the new commits to your github repo.</li>
 </ol>
-<p>After this two steps, your server and github will do the rest of the work. After few miniutes, your hexo blog will be updated.</p>
+<p>After these two steps, your server and github will do the rest of the work. After few miniutes, your hexo blog will be updated.</p>
+<p>Talking about iPad, people always consider it as a gaming device, with which you can watch film or play games. But after iPadOS is published, many new functions are available now. For example, you can manage your files in your portable SSD via Type-C USB. Still, it has a lot of restrictions as a working tool. You have the feeling of being tied and working in a small space with few freedom. However, it has the convenience to be used while travling. Moreover, with the Apple Pencile, you can draw things easily. I also recommend the Logic smart cover with keyboard, which is very comfortable to type with. With this solution, you can pack your ipad in your bag and update your hexo blog anywhere you like.</p>
 
       
     </div>
